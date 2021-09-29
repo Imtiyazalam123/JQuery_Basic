@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/myCss.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div id="container">
+
+    </div>
+    <img class = "image" src="keerhy-suresh.jpg" alt="image didnt load"> <br><br>
+    <button class="chimg">ChangeImg</button>
+    <button id = "btn1">Btn1</button>
+    <button id = "btn2">Btn2</button>
+    <button id = "btn3">FaddeTougle</button>
+    <button id = "btn4">FadeTo</button>
+    <br> <br> <br>
+    <button id = "btn5">SlidUp</button>
+    <button id = "btn6">SlidDown</button>
+    <button id = "btn7">SlidToggle</button>
+
+    <button id = "btn8">Animate</button>
+    <br><br>
+    <input type="text" id = "field">
+    <button id = "btn9">Val</button>
+
+    <p class="content">i am doing jquery practice <b>: Imtiyaz</b></p>
+    <br>
+    <button class="getcontent">content</button> <br>
+    <h3 id = "h">hellow Imtiyaz, Your Most Welcome</h3>
+    <br>
+    <button id = "btn10">Operation</button>
+   
+   
+    <!-- CDN -->
+    <script src = "js/jquery.min.js"></script>
+    <!-- js file -->
+    <script src = "js/myJs.js"></script>
+    <script>
+        // var fun = function myFun(){
+        //     console.log("page loaded..........");
+        // }
+        $(document).ready(function(){
+          
+            $("#btn1").click(function(){
+
+                // $('#container').hide()
+                $('#container').fadeOut(2000, function(){
+                    alert("done");
+                })
+
+            })
+            $("#btn2").click(function(){
+
+                // $('#container').show()
+                $('#container').fadeIn()
+            })
+            $("#btn3").click(function(){
+                $('#container').fadeToggle() //we can also pass as arg time and callback function like: fadeToggle(2000, function(){ alert("done")
+            })
+            $("#btn4").click(function(){ 
+                $('#container').fadeTo(200, 0.5) //we can also use callback function
+            })
+
+
+            // sliding
+            $('#btn5').click(function(){
+                $('#container').slideUp(1000, function(){
+                    alert("done")
+                })
+            })
+            $('#btn6').click(function(){
+                $('#container').slideDown(1000, function(){
+                    alert("done")
+                }) 
+                
+            })
+            $('#btn7').click(function(){ 
+                $('#container').slideToggle()
+            })
+            //Animation...........
+            $('#btn8').click(function(){ 
+                $('#container').animate({width:"100", height: "100", opacity: 0.5}, 2000, function(){
+                    $('#container').animate({borderRadius:"20px", left: "0",width:"200", height: "200", opacity:1}, 3000)
+                })
+            })
+
+            //set and get value form field
+            $('#btn9').click(function(){ 
+                // let v = $("#field").val();
+                // console.log("value of field is :"+ v)
+                
+                $("#field").val("setted value by default by val()")
+            })
+            
+
+            //text() and html function...............
+            $('.getcontent').click(function(){
+                // let c = $('.content').text();
+                // console.log('this is content : '+c);
+
+              //  $('.content').text("<b>this is new content by text</b>");
+                // let htmlC = $('.content').html();
+                // console.log("this is html : "+htmlC);
+
+                $('.content').html("<b>this is new content by text</b>");
+                
+            })
+            $('.chimg').click(function(){
+                $('.image').attr("src", "keerthy-suresh1.jpg")
+            })
+            $('#btn10').click(function(){
+              //  $('#h').append(", <b> Well Done Imtiyaz </b>");
+            //   $('#h').prepend("<b> Hiii Good Morning....., </b> ");
+                $('#h').remove();
+
+                //addClass()
+                //removeClass()
+                //toggleClass()
+                //CSS()
+            })
+        })
+    </script>
+</body>
+</html>
